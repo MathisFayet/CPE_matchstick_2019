@@ -24,8 +24,8 @@ LDFLAGS		= 	-L./lib/my -lmy
 all:			$(NAME)
 
 $(NAME):		$(OBJ)
-			make -C lib/my
-			$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)
+			@make -C lib/my
+			@$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)
 
 tests_run:	$(OBJ_TESTS)
 			$(CC) -o $(TEST_NAME) $(OBJ_TESTS) -lcriterion $(LDFLAGS) --coverage
@@ -40,13 +40,13 @@ gcovr_html:
 			google-chrome coverage.html
 
 clean:
-			rm -f $(OBJ)
-			rm -f *.gc*
-			rm -f coverage.*
-			rm -f $(TEST_NAME)
+			@rm -f $(OBJ)
+			@rm -f *.gc*
+			@rm -f coverage.*
+			@rm -f $(TEST_NAME)
 
 fclean: 		clean
-			rm -f $(NAME)
+			@rm -f $(NAME)
 
 re:			fclean all
 
