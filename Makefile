@@ -31,10 +31,6 @@ tests_run:	$(OBJ_TESTS)
 			$(CC) -o $(TEST_NAME) $(OBJ_TESTS) -lcriterion $(LDFLAGS) --coverage
 			./$(TEST_NAME)
 
-gcovr:
-			gcovr --exclude $(TEST_FILES)
-			gcovr --exclude	$(TEST_FILES) --branches
-
 gcovr_html:
 			gcovr --exclude $(TEST_FILES) --html --html-details -o coverage.html
 			google-chrome coverage.html
