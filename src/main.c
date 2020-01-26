@@ -10,15 +10,15 @@
 int main (int argc, char **argv)
 {
     if (argc > 3 || argc <= 2) {
-        my_putstr("Please check the argurment please\n");
+        my_putstr("Please check the argurment please !\n");
         return (84);
     }
     if (my_getnbr(argv[2]) <= 0) {
-        my_putstr("Please give a number for the second argument");
+        my_putstr("Please give a number for the second argument !");
         return (84);
     }
     if (my_getnbr(argv[1]) > 100 || my_getnbr(argv[1]) < 1) {
-        my_putstr("Numbers of sticks invalid\n");
+        my_putstr("Numbers of sticks invalid !\n");
         return (84);
     }
 }
