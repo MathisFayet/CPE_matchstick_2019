@@ -1,22 +1,24 @@
 /*
-** EPITECH PROJECT, 2019
-** CPE_matchstick_2019
-** File description:
+** EPITECH PROJECT, 2020
 ** main.c
+** File description:
+** Epitech Project
 */
 
-int main(int ac, char **av)
-{
-    int win;
+#include "my.h"
 
-    if (ac == 3) {
-        win = function();
-    if (win == 1)
-        return(1);
-     else if (win == 2)
-        return (2);
-    else
-        return (0);
+int main (int argc, char **argv)
+{
+    if (argc > 3 || argc <= 2) {
+        my_putstr("Please check the argurment please\n");
+        return (84);
     }
-    return(0);
+    if (my_getnbr(argv[2]) <= 0) {
+        my_putstr("Please give a number for the second argument");
+        return (84);
+    }
+    if (my_getnbr(argv[1]) > 100 || my_getnbr(argv[1]) < 1) {
+        my_putstr("Numbers of sticks invalid\n");
+        return (84);
+    }
 }
