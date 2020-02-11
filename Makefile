@@ -7,7 +7,12 @@
 
 CC			= 	gcc
 
-SRC			=	src/main.c
+SRC			=	src/main.c				\
+				src/matchstick.c		\
+				src/print_matchstick.c	\
+				src/create_stick.c		\
+				src/print_game.c		\
+				src/get_next_line.c
 
 OBJ			=	$(SRC:.c=.o)
 
@@ -17,7 +22,7 @@ NAME		=	matchstick
 
 TEST_NAME	= 	unit_test
 
-CFLAGS		= 	-I./include
+CFLAGS		= 	-I./include -g
 
 LDFLAGS		= 	-L./lib/my -lmy
 
