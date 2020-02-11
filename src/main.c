@@ -6,19 +6,17 @@
 */
 
 #include "my.h"
+#include "matchstick.h"
 
 int main (int argc, char **argv)
 {
-    if (argc > 3 || argc <= 2) {
-        my_putstr("Please check the argurment please...\n");
+    if (argc != 3)
         return (84);
-    }
-    if (my_getnbr(argv[2]) <= 0) {
-        my_putstr("Please give a number for the second argument...");
+    if (my_getnbr(argv[1]) <= 0 || my_getnbr(argv[1]) >= 100)
         return (84);
+    else {
+        if (function_matchstick(argv[1], argv[2]) == 84)
+            return (84);
     }
-    if (my_getnbr(argv[1]) > 100 || my_getnbr(argv[1]) < 1) {
-        my_putstr("Numbers of sticks invalid !\n");
-        return (84);
-    }
+    return (0);
 }
