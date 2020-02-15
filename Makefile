@@ -12,7 +12,9 @@ SRC			=	src/main.c				\
 				src/print_matchstick.c	\
 				src/create_stick.c		\
 				src/print_game.c		\
-				src/get_next_line.c
+				src/error.c				\
+				src/ia.c				\
+				src/check_ia.c
 
 OBJ			=	$(SRC:.c=.o)
 
