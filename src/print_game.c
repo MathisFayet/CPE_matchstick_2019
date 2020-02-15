@@ -7,33 +7,33 @@
 
 #include "matchstick.h"
 
-char **remove_my_match(char **dest, int line, int match)
+char **remove_my_match(char **dest, int line, int match, matchstick_t *my_game)
 {
     int x = 0;
-    int stock = 0;
 
     while (dest[line][x] != '\0') {
         x += 1;
     }
-    while(dest[line][x] != '|' || dest[line][x] != '*')
+    while((dest[line][x] != '|') && (x >= 0))
         x -= 1;
     while (match > 0) {
         dest[line][x] = ' ';
+        match -= 1;
+        x -= 1;
     }
+    my_putstr("Player removed ");
+    my_put_nbr(my_game->user_match);
+    my_putstr(" match(es) from line ");
+    my_put_nbr(my_game->user_line);
+    my_putchar('\n');
     return (dest);
 }
-void print_game(int second, int first, char **dest)
-{
-    char *stock = NULL;
 
-    my_putstr("Your turn:\n");
-    my_putstr("Line: ");
-    stock = get_next_line(0);
-    my_putstr("Matches: ");
-    stock = get_next_line(0);
-    my_putstr("Player removed ");
-    my_putstr(stock);
-    my_putstr(" match(es) from line ");
-    my_putstr(stock);
-    my_putchar('\n');
+int print_game(int second, int first, char **dest, matchstick_t *my_game)
+{
+    if (check_my_line(my_game, dest, first) == 1)
+        return (1);
+    if (check_my_matches(my_game, dest, second, first) == 1)
+        return (1);
+    return (0);
 }

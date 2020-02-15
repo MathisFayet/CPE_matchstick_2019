@@ -36,8 +36,8 @@ void my_print_star(char **dest)
 
     fill_star(dest[0]);
     while (dest[y + 1] != NULL) {
-        dest[y][0] = '*'; 
-        dest[y][size - 1] = '*'; 
+        dest[y][0] = '*';
+        dest[y][size - 1] = '*';
         y += 1;
     }
     fill_star(dest[y]);
