@@ -45,6 +45,8 @@ int my_getnbr(char const *str)
             sign = sign * -1;
         i++;
     }
+    if (str[i] == '\0')
+        return (-1);
     size = lenght2(str, i);
     while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9')) {
         result = result + ((str[i] - '0') * p(10, size - 1));
