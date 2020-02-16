@@ -99,7 +99,7 @@ int function_matchstick(char *first, char *second)
     my_game->first = my_getnbr(first);
     my_game->second = my_getnbr(second);
     while (1) {
-        check = game_loop(dest, my_getnbr(first), my_getnbr(second), my_game);
+        check = game_loop(dest, my_game->first, my_game->second, my_game);
         if (check > 0)
             return (check);
         if (check == -1)

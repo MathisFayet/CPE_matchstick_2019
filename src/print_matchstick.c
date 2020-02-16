@@ -13,7 +13,7 @@ void dump(char **tab)
 
     while (tab[y]) {
         my_putstr(tab[y]);
-        y++;
+        y += 1;
         my_putchar('\n');
     }
 }
@@ -24,7 +24,7 @@ void fill_star(char *dest)
 
     while (dest[x] != '\0') {
         dest[x] = '*';
-        x++;
+        x += 1;
     }
 }
 

@@ -30,13 +30,67 @@ char **remove_my_match_ia(char **dest, int line, int match,
     return (dest);
 }
 
+int check_last_line(char **dest, matchstick_t *my_game)
+{
+    int x = 0;
+    int y = 0;
+    int counter = 0;
+
+    while (dest[y]!= NULL) {
+        while (dest[y][x] != '\0') {
+            if (dest[y][x] == '|') {
+                counter += 1;
+                y += 1;
+            }
+            x += 1;
+        }
+        y += 1;
+        x = 0;
+    }
+    return (counter);
+}
+
+int found_last_line(char **dest, matchstick_t *my_game)
+{
+    int x = 0;
+    int y = 0;
+
+    while (dest[y] != NULL) {
+        while (dest[y][x] != '\0') {
+            if (dest[y][x] == '|') {
+                return (y);
+            }
+            x += 1;
+        }
+        y += 1;
+        x = 0;
+    }
+    return (0);
+}
+
+int ia_turn2(char **dest, matchstick_t *my_game)
+{
+    int ia_lines = found_last_line(dest, my_game);
+    int ia_matches = 0;
+
+    while (check_my_match3(my_game, dest, ia_matches, ia_lines) != 0) {
+        ia_matches = random() % my_game->second;
+    }
+    remove_my_match_ia(dest, ia_lines, ia_matches, my_game);
+    return (0);
+}
+
 int ia_turn(char **dest, matchstick_t *my_game, int first, int second)
 {
-    int ia_lines = random() % first;
-    int ia_matches = random() % second;
+    int ia_lines = 0;
+    int ia_matches = 0;
 
     my_putstr("AI's turn...\n");
-    while (check_my_match3(my_game, dest, ia_lines, ia_matches)) {
+    if (check_last_line(dest, my_game) == 1) {
+        ia_turn2(dest, my_game);
+        return (0);
+    }
+    while (check_my_match3(my_game, dest, ia_matches, ia_lines) != 0) {
         ia_lines = random() % first;
         ia_matches = random() % second;
     }
