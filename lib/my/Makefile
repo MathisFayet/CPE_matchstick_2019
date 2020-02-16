@@ -64,7 +64,7 @@ fclean: 	clean
 re:			fclean all
 
 %.o:		%.c
-			@echo -n "Compiling: $<"	
+			@echo -n "Compiling: $<"
 			@$(CC) $(CFLAGS) -c $< -o $@ && echo -e " [\033[32mOK\033[0m]" || echo -e " [\033[31mKO\033[0m]"
 
 .PHONY:		all clean fclean re $(NAME)
