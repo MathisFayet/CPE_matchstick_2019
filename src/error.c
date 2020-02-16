@@ -44,9 +44,7 @@ int check_my_match3(matchstick_t *my_game, char **dest, int match, int line)
             stock += 1;
         x += 1;
     }
-    //printf("Check on line [%d] : %d matches and you ask %d\n", line, stock, match);
     if (match > stock) {
-        //printf("NOP\n");
         if (my_game->check_turn == 1)
             my_putstr("Error: not enough matches on this line\n");
         return (1);
