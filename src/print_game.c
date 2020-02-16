@@ -14,7 +14,7 @@ char **remove_my_match(char **dest, int line, int match, matchstick_t *my_game)
     while (dest[line][x] != '\0') {
         x += 1;
     }
-    while((dest[line][x] != '|') && (x >= 0))
+    while ((dest[line][x] != '|') && (x >= 0))
         x -= 1;
     while (match > 0) {
         dest[line][x] = ' ';
