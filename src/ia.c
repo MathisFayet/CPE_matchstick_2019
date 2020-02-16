@@ -15,7 +15,7 @@ char **remove_my_match_ia(char **dest, int line, int match,
     while (dest[line][x] != '\0') {
         x += 1;
     }
-    while((dest[line][x] != '|') && (x >= 0))
+    while ((dest[line][x] != '|') && (x >= 0))
         x -= 1;
     while (match > 0) {
         dest[line][x] = ' ';
@@ -36,7 +36,7 @@ int check_last_line(char **dest, matchstick_t *my_game)
     int y = 0;
     int counter = 0;
 
-    while (dest[y]!= NULL) {
+    while (dest[y] != NULL) {
         while (dest[y][x] != '\0') {
             if (dest[y][x] == '|') {
                 counter += 1;
