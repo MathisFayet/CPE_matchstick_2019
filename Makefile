@@ -57,5 +57,4 @@ re:			fclean all
 			@echo -n "Compiling main scripts: $<"
 			@$(CC) $(CFLAGS) -c $< -o $@ && echo -e " [\033[32mOK\033[0m]" || echo -e " [\033[31mKO\033[0m]"
 
-
 .PHONY:		all unit_test clean fclean re
